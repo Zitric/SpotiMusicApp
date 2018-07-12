@@ -1,0 +1,11 @@
+<div class="card-columns animated fadeIn">
+  <div (click)="seeArtist(item)" *ngFor="let item of items" class="card pointer">
+    <img class="card-img-top" [src]="item.images | noimage" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">{{ item.name }}</h4>
+      <h5 class="card-title" *ngFor="let artist of item.artists">
+        <span class="badge badge-success"> {{ artist.name }} </span>
+      </h5>
+    </div>
+  </div>
+</div>

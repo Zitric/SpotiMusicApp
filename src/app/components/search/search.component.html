@@ -1,15 +1,9 @@
-<div class="row">
+<div class="row animated fadeIn fast mb-2">
   <div class="col">
     <input #term type="text" (keyup)="search(term.value)" class="form-control" placeholder="Search artist">
   </div>
 </div>
 
+<app-loading *ngIf="loading"></app-loading>
 
-<div class="card-columns m-5">
-  <div *ngFor="let artist of artists" class="card">
-    <img class="card-img-top" [src]="artist.images[0].url" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{ artist.name }}</h5>
-    </div>
-  </div>
-</div>
+<app-cards *ngIf="!loading" [items]="artists" class="m-5"></app-cards>
