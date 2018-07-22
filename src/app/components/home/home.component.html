@@ -1,3 +1,5 @@
 <app-loading *ngIf="loading"></app-loading>
 
+<app-alert *ngIf="error" [message]="errorMessage"></app-alert>
+
 <app-cards *ngIf="!loading" [items]="newTracks"></app-cards>
