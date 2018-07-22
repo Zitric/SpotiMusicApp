@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   loading: boolean;
   error: boolean;
   errorMessage: string;
+  token: string;
 
   constructor( private spotify: SpotifyService ) {
 
@@ -27,6 +28,12 @@ export class HomeComponent implements OnInit {
         this.errorMessage = err.error.error.message;
         this.loading = false;
       });
+
+    this.spotify.getTokenFromSpotify()
+      .subscribe( res => {
+        console.log('token ', res );
+      });
+    // this.spotify.getTokenFromSpotify();
   }
 
   ngOnInit() {
